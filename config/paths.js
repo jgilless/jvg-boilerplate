@@ -13,5 +13,6 @@ module.exports = {
     appHtml: resolveAppPath('public/index.html'),
     appSrc: resolveAppPath('src'),
     appIndexJs: resolveAppPath('src/js/index.js'),
-    nodeModules: resolveAppPath('node_modules')
+    nodeModules: resolveAppPath('node_modules'),
+    dist: resolveAppPath('dist')
 }

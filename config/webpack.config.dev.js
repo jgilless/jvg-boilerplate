@@ -4,6 +4,8 @@ const paths = require('./paths');
 const webpackServeConfig = require('./webpack-serve.config');
 const babelConfig = require('./babel.config.js');
 
+process.env.NODE_ENV = 'development';
+
 module.exports = {
     entry: [
         require.resolve('./polyfills'),
@@ -30,7 +32,7 @@ module.exports = {
                 include: paths.appSrc,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                options: babelConfig
+                options: babelConfig()
             }
         ]
     },

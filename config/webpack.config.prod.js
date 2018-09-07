@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
+const babelConfig = require('./babel.config.js');
+
+process.env.NODE_ENV = 'production';
 
 module.exports = {
     entry: [
@@ -9,11 +12,9 @@ module.exports = {
     ],
     output: {
         // pathinfo adds filename comments to the requires in the output
-        pathinfo: true,
-        // This is not a real file
-        filename: 'assets/js/bundle.js',
-        // This serves the app from the root of localhost:<port>
-        publicPath: '/',
+        pathinfo: false,
+        path: paths.dist,
+        filename: 'bundle.js',
     },
     resolve: {
         modules: [paths.nodeModules],
@@ -27,9 +28,7 @@ module.exports = {
                 include: paths.appSrc,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                options: {
-                    cacheDirectory: true
-                }
+                options: babelConfig()
             }
         ]
     },
