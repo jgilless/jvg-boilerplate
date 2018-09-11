@@ -4,7 +4,7 @@ const presetEnvCfg = {
     modules: env === 'test' ? 'commonjs' : false,
     useBuiltIns: 'entry',
     targets: env === 'test' ? { node: 'current' } : { browsers: 'ie 11' },
-    loose: true
+    loose: true,
 };
 
 /**
@@ -17,15 +17,8 @@ const presetEnvCfg = {
  */
 
 module.exports = () => ({
-    presets: [
-        [
-            '@babel/preset-env',
-            presetEnvCfg
-        ]
-    ].filter(Boolean),
-    plugins: [
-        '@babel/plugin-proposal-object-rest-spread'
-    ].filter(Boolean)
+    presets: [['@babel/preset-env', presetEnvCfg]].filter(Boolean),
+    plugins: ['@babel/plugin-proposal-object-rest-spread'].filter(Boolean),
 });
 
 /*

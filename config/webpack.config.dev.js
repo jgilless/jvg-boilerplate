@@ -7,10 +7,7 @@ const babelConfig = require('./babel.config.js');
 process.env.NODE_ENV = 'development';
 
 module.exports = {
-    entry: [
-        require.resolve('./polyfills'),
-        paths.appIndexJs
-    ],
+    entry: [require.resolve('./polyfills'), paths.appIndexJs],
     output: {
         // pathinfo adds filename comments to the requires in the output
         pathinfo: true,
@@ -21,7 +18,7 @@ module.exports = {
     },
     resolve: {
         modules: [paths.nodeModules],
-        extensions: ['.js', 'json']
+        extensions: ['.js', 'json'],
     },
     devtool: 'source-map',
     mode: 'development',
@@ -32,23 +29,23 @@ module.exports = {
                 include: paths.appSrc,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                options: babelConfig()
-            }
-        ]
+                options: babelConfig(),
+            },
+        ],
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('development')
-            }
+                NODE_ENV: JSON.stringify('development'),
+            },
         }),
         new HtmlWebpackPlugin({
             template: paths.appHtml,
-            inject: true
-        })
+            inject: true,
+        }),
     ],
     watchOptions: {
-        ignored: /node_modules/
+        ignored: /node_modules/,
     },
-    serve: webpackServeConfig
-}
+    serve: webpackServeConfig,
+};

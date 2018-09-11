@@ -7,8 +7,8 @@ module.exports = {
         // Too noisy at higher levels, warnings are useful
         logLevel: 'warn',
         // Reload the page for build errors
-        reload: true
+        reload: true,
     },
     open: true,
-    port: 3000
-}
+    port: 3000,
+};
