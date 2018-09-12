@@ -38,5 +38,10 @@
         "extends": [
             "./config/eslint.config.js"
         ]
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "trailingComma": "es5"
     }
 }
