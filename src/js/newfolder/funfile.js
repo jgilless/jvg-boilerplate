@@ -1,3 +1,5 @@
+import './test.css';
+
 /**
  * hello returns a string: 'world'
  * @return { String } 'world'
