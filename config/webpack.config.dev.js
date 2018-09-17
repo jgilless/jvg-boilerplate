@@ -31,6 +31,36 @@ module.exports = {
                 exclude: /node_modules/,
                 options: babelConfig(),
             },
+            {
+                test: /\.css$/,
+                include: paths.appSrc,
+                use: [
+                    // Add css to the dom by adding a <style> tag
+                    {
+                        loader: 'style-loader',
+                    },
+                    // CSS-Loader lets you use @import like a js import
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // This is just the number of loaders applied before this one
+                            importLoaders: 1,
+                        },
+                    },
+                    // Magic loading with loads of goodies
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            config: {
+                                path: paths.config,
+                                ctx: {
+                                    env: 'development',
+                                },
+                            },
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
