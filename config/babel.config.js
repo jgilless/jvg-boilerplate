@@ -1,9 +1,9 @@
-const env = process.env.NODE_ENV;
+const { NODE_ENV } = process.env;
 
 const presetEnvCfg = {
-    modules: env === 'test' ? 'commonjs' : false,
+    modules: NODE_ENV === 'test' ? 'commonjs' : false,
     useBuiltIns: 'entry',
-    targets: env === 'test' ? { node: 'current' } : { browsers: 'ie 11' },
+    targets: NODE_ENV === 'test' ? { node: 'current' } : { browsers: 'ie 11' },
     loose: true,
 };
 

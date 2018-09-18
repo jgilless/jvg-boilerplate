@@ -15,5 +15,5 @@ module.exports = {
     appIndexJs: resolveAppPath('src/js/index.js'),
     nodeModules: resolveAppPath('node_modules'),
     dist: resolveAppPath('dist'),
-    config: resolveAppPath('config')
+    config: resolveAppPath('config'),
 };

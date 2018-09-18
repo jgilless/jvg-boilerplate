@@ -5,13 +5,13 @@ module.exports = {
     setupFiles: ['<rootDir>/config/polyfills.js'],
     testMatch: [
         '<rootDir>/test/*.{js}',
-        '<rootDir>/test/**/?(*.)(spec|test).{js}'
+        '<rootDir>/test/**/?(*.)(spec|test).{js}',
     ],
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
         '^.+\\.css$': '<rootDir>/config/jest/css-transform.js',
-        '^.+\\.(js)$': '<rootDir>/config/jest/jest-transform.js'
+        '^.+\\.(js)$': '<rootDir>/config/jest/jest-transform.js',
     },
     transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$'],
     moduleFileExtensions: [
@@ -21,6 +21,6 @@ module.exports = {
         'web.jsx',
         'jsx',
         'node',
-        'mjs'
-    ]
+        'mjs',
+    ],
 };

@@ -9,5 +9,5 @@ module.exports = {
     },
     getCacheKey() {
         return 'css-transform';
-    }
+    },
 };

@@ -28,11 +28,11 @@ module.exports = {
         // pathinfo adds filename comments to the requires in the output
         pathinfo: false,
         path: paths.dist,
-        filename: '[hash].bundle.js'
+        filename: '[hash].bundle.js',
     },
     resolve: {
         modules: [paths.nodeModules],
-        extensions: ['.js', 'json']
+        extensions: ['.js', 'json'],
     },
     mode: 'production',
     module: {
@@ -42,7 +42,7 @@ module.exports = {
                 include: paths.appSrc,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                options: babelConfig()
+                options: babelConfig(),
             },
             {
                 test: /\.css$/,
@@ -50,15 +50,15 @@ module.exports = {
                 use: [
                     // Extract CSS
                     {
-                        loader: MiniCssExtractPlugin.loader
+                        loader: MiniCssExtractPlugin.loader,
                     },
                     // CSS-Loader lets you use @import like a js import
                     {
                         loader: 'css-loader',
                         options: {
                             // This is just the number of loaders applied before this one
-                            importLoaders: 1
-                        }
+                            importLoaders: 1,
+                        },
                     },
                     // Magic loading with loads of goodies
                     {
@@ -67,27 +67,27 @@ module.exports = {
                             config: {
                                 path: paths.config,
                                 ctx: {
-                                    env: 'development'
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        ]
+                                    env: 'development',
+                                },
+                            },
+                        },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
+                NODE_ENV: JSON.stringify('production'),
+            },
         }),
         new HtmlWebpackPlugin({
             template: paths.appHtml,
-            inject: true
+            inject: true,
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css'
-        })
-    ]
+            filename: 'style.[contenthash].css',
+        }),
+    ],
 };
