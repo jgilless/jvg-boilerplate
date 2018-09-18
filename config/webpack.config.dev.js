@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
-const webpackServeConfig = require('./webpack-serve.config');
+const webpackDevServerConfig = require('./webpack-dev-server.config');
 const babelConfig = require('./babel.config.js');
 
 process.env.NODE_ENV = 'development';
@@ -72,10 +72,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: paths.appHtml,
             inject: true
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin({})
     ],
     watchOptions: {
         ignored: /node_modules/
     },
-    serve: webpackServeConfig
+    devServer: webpackDevServerConfig
 };
