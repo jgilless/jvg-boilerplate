@@ -1,57 +1,55 @@
 {
-    "name": "jvg-boilerplate",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "build": "webpack --config config/webpack.config.dev.js",
-        "build:production": "webpack --config config/webpack.config.prod.js",
-        "dev": "webpack-dev-server --config config/webpack.config.dev.js",
-        "test": "node scripts/test.js --config config/jest/jest.config.js",
-        "format": "prettier --config ./config/prettier.config.js --write \"**/*.+(js|json|less|css||md)\"",
-        "precommit": "lint-staged --config config/lint-staged.config.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@babel/core": "^7.0.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-        "@babel/preset-env": "^7.0.0",
-        "autoprefixer": "^9.1.5",
-        "babel-core": "^7.0.0-bridge.0",
-        "babel-jest": "^23.4.2",
-        "babel-loader": "^8.0.0",
-        "css-loader": "^1.0.0",
-        "eslint": "^5.5.0",
-        "eslint-config-prettier": "^3.0.1",
-        "html-webpack-plugin": "^3.2.0",
-        "husky": "^1.0.0-rc.14",
-        "jest": "^23.5.0",
-        "lint-staged": "^7.2.2",
-        "mini-css-extract-plugin": "^0.4.2",
-        "object-assign": "^4.1.1",
-        "path": "^0.12.7",
-        "postcss-loader": "^3.0.0",
-        "prettier": "^1.14.2",
-        "style-loader": "^0.23.0",
-        "webpack": "^4.17.1",
-        "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.8"
-    },
-    "eslintConfig": {
-        "extends": [
-            "./config/eslint.config.js"
-        ]
-    },
-    "prettier": {
-        "tabWidth": 4,
-        "singleQuote": true,
-        "trailingComma": "es5"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged --config config/lint-staged.config.js"
-        }
+  "name": "jvg-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --env.devServer --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.config.js",
+    "build:production": "webpack --env.production --config config/webpack.config.js",
+    "test": "node scripts/test.js --config config/jest/jest.config.js",
+    "precommit": "lint-staged --config config/lint-staged.config.js"
+  },
+  "keywords": [],
+  "author": "Joshua Gilless",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
+    "autoprefixer": "^9.4.7",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^1.0.1",
+    "dotenv": "^6.2.0",
+    "dotenv-expand": "^4.2.0",
+    "eslint": "^5.13.0",
+    "eslint-config-jvg": "^0.1.3",
+    "eslint-config-prettier": "^3.6.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.3.0",
+    "mini-css-extract-plugin": "^0.4.5",
+    "object-assign": "^4.1.1",
+    "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^7.0.1",
+    "prettier": "^1.16.4",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "eslintConfig": {
+    "extends": [
+      "jvg"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --config config/lint-staged.config.js"
     }
+  }
 }
